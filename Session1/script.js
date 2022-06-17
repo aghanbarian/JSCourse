@@ -14,5 +14,5 @@ console.log(first_name)
 first_name = 'ali'
 console.log(first_name)
 console.log(last_name)
-
 console.log('github initiated ')
+console.log('github sync')
