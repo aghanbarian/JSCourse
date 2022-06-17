@@ -30,7 +30,7 @@ let name,
   lastname = ''
 
 name = 'david'
-lastname = 'robertson'
+lastname = 'robeRtson'
 
 console.log(name)
 console.log(lastname)
@@ -64,3 +64,37 @@ console.log(typeof name)
 let n = null
 console.log(n)
 console.log(typeof n)
+
+let aNan = NaN
+/* number object and methods */
+let price = 16.345678
+
+// console.log(price.toExponential())
+// console.log(price.toFixed(3))
+// console.log(price.toPrecision(4))
+// console.log((14.789).toFixed(3))
+// console.log(Number.isFinite(price / 2))
+// console.log(Number.isInteger(b))
+// console.log(Number.isNaN(aNan))
+// console.log(aNan)
+// console.log(Number.isNaN(lastname))
+
+/* Number objects features */
+
+console.log(Number('10'))
+console.log(Number('10.5'))
+console.log(Number('10.76'))
+console.log(Number('10,7'))
+console.log(Number('10a'))
+console.log(Number('edvin'))
+
+console.log(parseInt('10'))
+console.log(parseInt('10.5'))
+console.log(parseInt('10 a'))
+console.log(parseInt('a 10'))
+
+console.log(lastname.length)
+console.log(lastname.toUpperCase())
+console.log(lastname.indexOf('t'))
+console.log(lastname.replace(/r/g, 'o'))
+console.log(lastname.replace(/r/gi, 'o'))
