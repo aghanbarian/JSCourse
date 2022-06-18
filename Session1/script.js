@@ -67,7 +67,7 @@ console.log(typeof n)
 
 let aNan = NaN
 /* number object and methods */
-let price = 16.345678
+// let price = 16.345678
 
 // console.log(price.toExponential())
 // console.log(price.toFixed(3))
@@ -98,3 +98,29 @@ console.log(lastname.toUpperCase())
 console.log(lastname.indexOf('t'))
 console.log(lastname.replace(/r/g, 'o'))
 console.log(lastname.replace(/r/gi, 'o'))
+
+sentence = 'I am ahmad Ghanbarian'
+console.log(sentence.includes('ahmad'))
+console.log(sentence.slice(3, 7))
+console.log(sentence.slice(5, 10))
+console.log(sentence.slice(-10))
+console.log(sentence.substring(1, 10))
+console.log(sentence.substr(10, 10))
+sen2 = sentence.replace('ahmad', 'ali')
+console.log(sen2)
+
+console.log(sen2.charCodeAt(6))
+sen2[1] = 'b'
+console.log(sen2)
+
+console.log(sen2.search('ali'))
+console.log(sen2.startsWith('I am'))
+console.log(sen2.endsWith('ghanbarian'))
+console.log(sen2.concat(' , I am well, are you?').concat(' che jaleb'))
+console.log(name.concat(' ', lastname, ' ', ' student of math'))
+console.log(`Welcome ${name} \n ${lastname}`)
+
+let price = 120000
+let VAT = 0.25
+
+console.log(`Total Price : ${price * (1 + VAT)}`)
