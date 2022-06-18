@@ -124,3 +124,5 @@ let price = 120000
 let VAT = 0.25
 
 console.log(`Total Price : ${price * (1 + VAT)}`)
+
+console.log(`my name is ${name} and my last name is ${lastname}`)
