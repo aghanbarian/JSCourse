@@ -98,3 +98,69 @@ console.log(lastname.toUpperCase())
 console.log(lastname.indexOf('t'))
 console.log(lastname.replace(/r/g, 'o'))
 console.log(lastname.replace(/r/gi, 'o'))
+
+let num1 = 100,
+  num2 = 123,
+  num3 = 5
+
+console.log(num1)
+console.log(num2)
+
+num1 = num2 - num1
+console.log(num1)
+num1 %= num3
+console.log(num1)
+console.log(num1, num2)
+num2 *= num1++
+console.log(num1, num2)
+
+let result
+let str1 = 'ali',
+  str2 = 'hassan'
+
+result = num2 == num3
+console.log(result)
+num2 = num3
+result = num2 == num3
+result = '0' == 0
+result = '' == 0
+result = null == undefined
+result = num2 === num3
+result = '' === 0
+result = '1' === 1
+result = null === undefined
+result = num1 != num3
+result = true != false
+result = 1 != 0
+result = str1.length
+result = str1.length < str2.length
+result = str2.slice(2, 6)
+result = str1.replace('l', 'b')
+result = String(10)
+result = Number(String(28 * 4))
+result = String(true)
+result = String('10' + null)
+result = String('10' - null)
+result = '10' * '3'
+result = parseInt('11' % '10')
+result = true && str1 == str2
+result = num1 > num2 || str2 > str1
+console.log(result)
+console.log(typeof result)
+num1 = 99
+if (num1 > 100) {
+  s1 = `عدد ${num1}`
+  s2 = 'بزرگتر از 100 است'
+  alert(s1 + s2)
+} else {
+  alert('No problem')
+}
+
+if (num1 > 100) {
+  alert('you are lucky')
+  if (num1 % 2 == 1) {
+    alert('more lock')
+  }
+} else {
+  alert('More effort is needed')
+}
