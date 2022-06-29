@@ -67,7 +67,6 @@ console.log(typeof n)
 
 let aNan = NaN
 /* number object and methods */
-let price = 16.345678
 
 // console.log(price.toExponential())
 // console.log(price.toFixed(3))
