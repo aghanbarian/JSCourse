@@ -149,6 +149,7 @@ sum = Number(val1) + Number(val2)
 console.log(val1, val2, sum)
 console.log(typeof sum)
 
+// Math functions
 val = Math.PI
 val = Math.E
 val = Math.round(10.6)
@@ -163,3 +164,51 @@ val = Math.random(4) * 4
 
 val = Math.floor(Math.random() * 20 + 1)
 console.log(val)
+
+//String functions
+let age = 30
+let firstName = 'William'
+let lastName = 'Johnson'
+
+val = firstName + lastName
+val = firstName + ' ' + lastName
+
+//cconcatenation
+val = firstName + ' ' + lastName
+//append
+
+val = 'ahmad '
+val += 'Ghanbarian'
+
+val = 'Hello, my name is ' + firstName + ' and i am ' + age + ' years old'
+
+//escaping
+
+val = "that's amazing, i'm waiting"
+
+val = firstName.length
+
+val = firstName.concat(' ', lastName)
+
+val = firstName.toUpperCase()
+val = firstName.toLowerCase()
+
+val = firstName[2]
+val = firstName.indexOf('i')
+val = firstName.lastIndexOf('i')
+val = firstName.charAt(2)
+
+val = firstName.substring(0, 4)
+val = firstName.slice(0, 4)
+val = firstName.slice(-3)
+
+let str = 'Hello there my name is ahmad'
+val = str.split(' ')
+let tags = 'web design, web programming, analysis, data science'
+val = tags.split(',')
+
+val = str.replace('ahmad', 'Ali')
+
+val = str.includes('jahan')
+console.log(val)
+console.log(typeof val)
