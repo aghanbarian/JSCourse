@@ -36,19 +36,41 @@ var greeting
 console.log(greeting)
 greeting = 'Hello World !'
 console.log(greeting)
+console.log('type of greeting : ' + typeof greeting)
 
 const a = 100
+console.log('type of a : ' + typeof a)
+let b = true
+console.log('type of b : ' + typeof b)
 
 const person = {
   name: 'ahmad',
   age: 30,
 }
+console.log('type of person : ' + typeof person)
+
+let n = null
+console.log('type of null : ' + typeof null)
+
+let u
+console.log('type of u : ' + typeof u)
+
+let sym = Symbol()
+
+console.log('type of sym : ' + typeof sym)
 
 person.name = 'sara'
 person.age = 32
 console.log(person)
 
+console.log('type of Person : ' + typeof person)
+
 const numbers = [1, 2, 3, 4, 5, 6, 7]
+console.log('type of numbers : ' + typeof numbers)
 numbers[3] = 10
 numbers.push(8)
 console.log(numbers)
+
+let today = new Date()
+console.log(today)
+console.log('type of today : ' + typeof today)
