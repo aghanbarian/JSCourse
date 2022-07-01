@@ -148,3 +148,18 @@ console.log(typeof sum)
 sum = Number(val1) + Number(val2)
 console.log(val1, val2, sum)
 console.log(typeof sum)
+
+val = Math.PI
+val = Math.E
+val = Math.round(10.6)
+val = Math.ceil(10.6)
+val = Math.floor(28.6)
+val = Math.sqrt(256)
+val = Math.abs(-5)
+val = Math.pow(8, 2)
+val = Math.min(3, 7, 23, 8, 10)
+val = Math.max(3, 7, 23, 8, 10)
+val = Math.random(4) * 4
+
+val = Math.floor(Math.random() * 20 + 1)
+console.log(val)
