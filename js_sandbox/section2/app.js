@@ -74,3 +74,77 @@ console.log(numbers)
 let today = new Date()
 console.log(today)
 console.log('type of today : ' + typeof today)
+
+// Type conversion
+
+let val
+
+val = 5
+
+console.log(val)
+console.log(typeof val)
+console.log(val.length)
+
+val = String(555)
+
+console.log(val)
+console.log(typeof val)
+console.log(val.length)
+
+val = String(4 + 9)
+
+console.log(val)
+console.log(typeof val)
+console.log(val.length)
+
+val = String(true)
+
+console.log(val)
+console.log(typeof val)
+console.log(val.length)
+
+val = String(Date())
+
+console.log(val)
+console.log(typeof val)
+console.log(val.length)
+
+val = String([1, 2, 3, 4])
+
+console.log(val)
+console.log(typeof val)
+console.log(val.length)
+
+val = (5).toString()
+val = true.toString()
+
+val = Number('5')
+val = Number(true)
+val = Number(false)
+val = Number(null)
+val = Number('5')
+val = Number('hi')
+val = Number([1, 2, 4, 5])
+val = parseInt(100.35)
+val = parseFloat(100.35)
+
+console.log(val)
+console.log(typeof val)
+console.log(val.length)
+console.log(val.toFixed(2))
+
+let val1 = 5
+let val2 = 6
+let sum = val1 + val2
+console.log(val1, val2, sum)
+console.log(typeof sum)
+
+val1 = '5'
+val2 = 6
+sum = val1 + val2
+console.log(val1, val2, sum)
+console.log(typeof sum)
+
+sum = Number(val1) + Number(val2)
+console.log(val1, val2, sum)
+console.log(typeof sum)
