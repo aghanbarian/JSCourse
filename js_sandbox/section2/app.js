@@ -1,35 +1,21 @@
-let name = 'John Doe'
-let age = 40
-let job = 'Web developer'
-let city = 'Tehran'
+// some arrays
 
-let html
-//without template string
-html =
-  '<ul>' +
-  '<li>Name : ' +
-  name +
-  '</li><li>Age : ' +
-  age +
-  '</li><li>Job : ' +
-  job +
-  '</li><li>City : ' +
-  city +
-  '</li></ul>'
-//with template string
+let Numbers = [45, 22, 34, 76, 11, 12]
+let Numbers2 = new Array(19, 2, 12, 45, 23, 11, 4)
+let fruits = ['Apple', 'Banana', 'Orange', 'Pear']
+let Mixed = ['ahmad', 30, 'Ghanbarian', 'Tehran Majidieh']
+let val
 
-function helloToName(name) {
-  return 'hello ' + name
-}
-html = `<h1>The Template String</h1>
-        <ul>
-        <li>name : ${name}</li>
-        <li>age : ${age}</li>
-        <li>job : ${job}</li>
-        <li>city : ${city}</li>
-        <li>${5 + 9}</li>
-        <li>${helloToName(name)}</li>
-        <li>${age > 30 ? 'Over 30' : 'Under or equal to 30'}</li>
-</ul>`
+console.log(Numbers)
+val = Numbers.length
+val = Array.isArray(Numbers2)
+val = Numbers[3]
+Numbers[2] = 100
+val = Numbers.indexOf(12)
+Numbers.push(44)
 
-document.body.innerHTML = html
+Numbers.unshift(999)
+Numbers.pop()
+
+console.log(Numbers)
+console.log(val)
