@@ -12,27 +12,28 @@ switch (color) {
 }
 
 let day
-today = new Date()
+today = new Date(2022, 06, 02)
+console.log(today)
 switch (today.getDay()) {
-  case 0:
+  case 1:
     day = 'monday'
     break
-  case 1:
+  case 2:
     day = 'tuesday'
     break
-  case 2:
+  case 3:
     day = 'wendsday'
     break
-  case 3:
+  case 4:
     day = 'tursday'
     break
-  case 4:
+  case 5:
     day = 'friday'
     break
-  case 5:
+  case 6:
     day = 'saturday'
     break
-  case 6:
+  case 0:
     day = 'sunday'
     break
   default:
