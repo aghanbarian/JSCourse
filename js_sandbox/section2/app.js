@@ -1,30 +1,30 @@
-let name = 'john doe'
-let job = 'Web Developer'
-let city = 'Tehran'
-let age = 35
+let val
 
-literalStr =
-  '<ul><li>name :' +
-  name +
-  '</li>' +
-  '<li>Job : ' +
-  job +
-  '</li>' +
-  '<li>City : ' +
-  city +
-  '</li>' +
-  '<li>age : ' +
-  age +
-  '</li>' +
-  '</ul>'
+const today = new Date()
+val = today
 
-// document.body.innerHTML = literalStr
+console.log(val)
+console.log(typeof val)
 
-literalStrTag = `<ul>
-              <li>Name : ${name}</li>
-              <li>Job : ${job}</li>
-              <li>Age : ${age}</li>
-              <li>city : ${city}</li>
-              </ul>`
+const birthDate = new Date()
+birthDate.setFullYear(1968, 1, 11)
 
-document.body.innerHTML = literalStr + '<br />' + literalStrTag
+val = birthDate.getMonth()
+val = birthDate.getDay()
+val = birthDate.toJSON()
+val = birthDate.getFullYear()
+val = birthDate.getHours()
+val = birthDate.getMinutes()
+val = birthDate.getSeconds()
+val = birthDate.getMilliseconds()
+val = birthDate.getTime()
+
+birthDate.setDate(12)
+birthDate.setFullYear(1970)
+birthDate.setHours(23)
+birthDate.setMinutes(23)
+birthDate.setSeconds(23)
+
+console.log(birthDate)
+console.log(val)
+console.log(typeof val)
