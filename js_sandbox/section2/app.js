@@ -1,43 +1,50 @@
-let color = 'blue'
-
-switch (color) {
-  case 'red':
-    console.log(`the color is ${color} and is my favorit`)
-    break
-  case 'blue':
-    console.log(`the color is ${color} and is the best`)
-    break
-  default:
-    console.log(`Colorful World `)
+function greet() {
+  // console.log('Hello')
+  return 'Hello'
 }
 
-let day
-today = new Date(2022, 06, 02)
-console.log(today)
-switch (today.getDay()) {
-  case 1:
-    day = 'monday'
-    break
-  case 2:
-    day = 'tuesday'
-    break
-  case 3:
-    day = 'wendsday'
-    break
-  case 4:
-    day = 'tursday'
-    break
-  case 5:
-    day = 'friday'
-    break
-  case 6:
-    day = 'saturday'
-    break
-  case 0:
-    day = 'sunday'
-    break
-  default:
-    day = 'not available'
+console.log(greet())
+
+function hello(name, family) {
+  console.log(`Hello ${name}  ${family}`)
 }
 
-console.log(day)
+hello('john', 'Doe')
+
+function welcome(firstName = 'john', lastName = 'doe') {
+  console.log(`Hello ${firstName} ${lastName}`)
+}
+
+welcome()
+welcome('steve', 'small')
+
+const square = function (x = 3) {
+  return x * x
+}
+
+console.log(square(9))
+
+//-----------
+;(function () {
+  console.log('Hello from X')
+})()
+;(function (a, b) {
+  console.log(`two number ${a} and ${b}`)
+})(10, 12)
+
+const someMethod = {
+  add: function () {
+    console.log('dont do thid')
+  },
+  update: function () {
+    console.log('update in Level 2')
+  },
+}
+
+someMethod.delete = function () {
+  console.log('in Delete Mode, Are you sue?')
+}
+
+someMethod.add()
+someMethod.update()
+someMethod.delete()
