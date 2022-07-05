@@ -1,30 +1,55 @@
-let val
+let id = 100
 
-const today = new Date()
-val = today
+if (id == 100) {
+  console.log('Correct')
+} else {
+  console.log('Incorrect')
+}
 
-console.log(val)
-console.log(typeof val)
+id = '100'
 
-const birthDate = new Date()
-birthDate.setFullYear(1968, 1, 11)
+if (id === 100) {
+  console.log('Correct')
+} else {
+  console.log('Incorrect')
+}
 
-val = birthDate.getMonth()
-val = birthDate.getDay()
-val = birthDate.toJSON()
-val = birthDate.getFullYear()
-val = birthDate.getHours()
-val = birthDate.getMinutes()
-val = birthDate.getSeconds()
-val = birthDate.getMilliseconds()
-val = birthDate.getTime()
+id = 101
 
-birthDate.setDate(12)
-birthDate.setFullYear(1970)
-birthDate.setHours(23)
-birthDate.setMinutes(23)
-birthDate.setSeconds(23)
+if (id != 100) {
+  console.log('not Correct')
+} else {
+  console.log('Correct')
+}
 
-console.log(birthDate)
-console.log(val)
-console.log(typeof val)
+let nd = 102
+if (nd) {
+  console.log(`the value of variable is ${nd}`)
+} else {
+  console.log('the variable is not ddefined')
+}
+
+if (id > 100) {
+  console.log('the id is correct')
+} else {
+  console.log('Id is not correct')
+}
+
+name = 'steve'
+age = 16
+
+if (age > 0 && age <= 12) {
+  console.log(`${name} is a child`)
+} else if (age >= 13 && age < 19) {
+  console.log(`${name} is a teenager`)
+} else {
+  console.log(`${name} is adult`)
+}
+
+if (age < 16 || age > 65) {
+  console.log(`${name} can not run in race`)
+} else {
+  console.log(`${name} is registered for race`)
+}
+
+console.log(age >= 13 ? 'Teenager and elder' : `${name} is Child`)
