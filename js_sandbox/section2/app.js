@@ -1,54 +1,69 @@
-function greet() {
-  // console.log('Hello')
-  return 'Hello'
+// Loops
+
+for (let i = 0; i < 10; i++) {
+  console.log(i)
 }
 
-console.log(greet())
+for (let j = 0; j < 10; j++) {
+  if (j === 2) {
+    console.log('Number 2 is my fav')
+    continue
+  }
 
-function hello(name, family) {
-  console.log(`Hello ${name}  ${family}`)
+  if (j === 5) {
+    break
+  }
+  console.log('number ' + j)
 }
 
-hello('john', 'Doe')
+let k = 0
 
-function welcome(firstName = 'john', lastName = 'doe') {
-  console.log(`Hello ${firstName} ${lastName}`)
+while (k < 10) {
+  console.log('while number ' + k)
+  k++
 }
 
-welcome()
-welcome('steve', 'small')
+let m = 0
 
-const square = function (x = 3) {
-  return x * x
+do {
+  console.log('do lopp number ' + m)
+  m++
+} while (m < 7)
+
+const cars = ['ford', 'chevy', 'honda', 'toyota']
+
+for (i = 0; i < cars.length; i++) {
+  console.log('Cars ' + i + ' ' + cars[i])
 }
 
-console.log(square(9))
+cars.forEach(function (c) {
+  console.log(c + ' in forEach')
+})
 
-//-----------
-;(function () {
-  console.log('Hello from X')
-})()
-;(function (a, b) {
-  console.log(`two number ${a} and ${b}`)
-})(10, 12)
+const users = [
+  { id: 1, name: 'ali' },
+  { id: 2, name: 'hasan' },
+  { id: 3, name: 'sara' },
+  { id: 4, name: 'lyla' },
+]
 
-const someMethod = {
-  add: function () {
-    console.log('dont do thid')
-  },
-  update: function () {
-    console.log('update in Level 2')
-  },
+const ids = users.map(function (user) {
+  return user.id
+})
+
+console.log(ids)
+
+cars.forEach(function (car, index, arr) {
+  console.log(`${index} ${car}`)
+  console.log('another access to array in foreach ' + arr[index])
+})
+
+const person = {
+  name: 'ali',
+  lastname: 'javad',
+  age: 30,
 }
 
-someMethod.delete = function () {
-  console.log('in Delete Mode, Are you sue?')
+for (x in person) {
+  console.log(`${x} : ${person[x]}`)
 }
-
-someMethod.insert = function (rec1) {
-  console.log('inserted record was unknown')
-}
-someMethod.add()
-someMethod.update()
-someMethod.delete()
-someMethod.insert()
