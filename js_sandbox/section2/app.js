@@ -45,6 +45,10 @@ someMethod.delete = function () {
   console.log('in Delete Mode, Are you sue?')
 }
 
+someMethod.insert = function (rec1) {
+  console.log('inserted record was unknown')
+}
 someMethod.add()
 someMethod.update()
 someMethod.delete()
+someMethod.insert()
