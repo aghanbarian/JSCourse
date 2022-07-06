@@ -1,23 +1,30 @@
-//global variables
-var a = 1
-let b = 2
-const c = 3
+let val
 
-function test() {
-  var a = 3
-  let b = 6
-  const c = 10
+val = document
+val = document.all
+val = document.all[3]
 
-  console.log('local of function : ', a, b, c)
-}
+// allArray = Array.from(document.scripts)
+// allArray.forEach(function (element) {
+//   console.log(element)
+// })
 
-test()
+val = document.head
+val = document.body
+val = document.domain
+val = document.URL
+val = document.characterSet
+val = document.contentType
 
-if (true) {
-  var a = 7
-  let b = 8
-  const c = 12
-  console.log('if scope : ', a, b, c)
-}
+val = document.links
+val = document.forms
 
-console.log('Global variables : ', a, b, c)
+val = document.images
+
+valArr = Array.from(document.scripts)
+
+valArr.forEach(function (element) {
+  console.log(element)
+})
+
+console.log(val)
