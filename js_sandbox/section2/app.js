@@ -1,69 +1,47 @@
-// Loops
+// window object
 
-for (let i = 0; i < 10; i++) {
-  console.log(i)
-}
+// window.console.log('hi')
 
-for (let j = 0; j < 10; j++) {
-  if (j === 2) {
-    console.log('Number 2 is my fav')
-    continue
-  }
+// let input = prompt()
+// console.log(input)
+// alert(input)
 
-  if (j === 5) {
-    break
-  }
-  console.log('number ' + j)
-}
+// if (confirm('Are You sure?')) {
+//   console.log('YES')
+// } else {
+//   console.log('No')
+// }
 
-let k = 0
+let val
 
-while (k < 10) {
-  console.log('while number ' + k)
-  k++
-}
+val = window.outerHeight
+val = window.outerWidth
 
-let m = 0
+let val1 = window.innerHeight
+let val2 = window.innerWidth
+let val3
 
-do {
-  console.log('do lopp number ' + m)
-  m++
-} while (m < 7)
+val1 = window.scrollY
+val2 = window.scrollX
 
-const cars = ['ford', 'chevy', 'honda', 'toyota']
+val1 = window.location
+val2 = window.location.hostname
+val3 = window.location.port
+val1 = window.location.href
+val2 = window.location.search
 
-for (i = 0; i < cars.length; i++) {
-  console.log('Cars ' + i + ' ' + cars[i])
-}
+//window.location.href = 'http://google.com'
+// window.location.reload()
 
-cars.forEach(function (c) {
-  console.log(c + ' in forEach')
-})
+// console.log(val1, ' ', val2, ' ', val3)
 
-const users = [
-  { id: 1, name: 'ali' },
-  { id: 2, name: 'hasan' },
-  { id: 3, name: 'sara' },
-  { id: 4, name: 'lyla' },
-]
+// window.history.go(-1)
 
-const ids = users.map(function (user) {
-  return user.id
-})
-
-console.log(ids)
-
-cars.forEach(function (car, index, arr) {
-  console.log(`${index} ${car}`)
-  console.log('another access to array in foreach ' + arr[index])
-})
-
-const person = {
-  name: 'ali',
-  lastname: 'javad',
-  age: 30,
-}
-
-for (x in person) {
-  console.log(`${x} : ${person[x]}`)
-}
+val = window.navigator
+val = window.navigator.appName
+val = window.navigator.appVersion
+val = window.navigator.userAgent
+val = window.navigator.platform
+val = window.navigator.vendor
+val = window.navigator.language
+console.log(val)
