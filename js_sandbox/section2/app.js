@@ -1,54 +1,51 @@
-// documnet. get element by id
+//Get Collection by Classname
+let items = document.getElementsByClassName('collection-item')
 
-console.log(document.getElementById('task-title'))
+items = Array.from(items)
+items.forEach(function (item) {
+  item.style.background = '#AAA'
+})
+console.log(items)
 
-console.log(document.getElementById('task-title').id)
-console.log(document.getElementById('task-title').className)
+//get collection by Tag name
 
-let anElement
+items = document.getElementsByTagName('li')
 
-anElement = document.getElementById('task-title')
+items = Array.from(items)
 
-anElement.style.backgroundColor = '#666'
-anElement.style.color = '#FFF'
-anElement.style.padding = '2px'
-anElement.textContent = 'Task List'
-anElement.innerText = 'My Task'
-//anElement.innerHTML = '<span style="color:yellow">Task List Span</span>'
+items.forEach(function (li, index) {
+  if (index % 2 == 0) {
+    li.style.background = '#ccc'
+  } else {
+    li.style.background = '#999'
+  }
+  li.textContent = `${index} New Text`
+})
+console.log(items)
 
-anElement = document.querySelector('#task-title')
+//get collection by queryselector
 
-anElement.style.color = 'RED'
+items = document.querySelector('ul').getElementsByClassName('collection-item')
 
-anElement = document.querySelector('.collection-item')
+items = Array.from(items)
 
-anElement.style.color = 'ORANGE'
+for (let i = 0; i < items.length; i++) {
+  items[i].style.color = 'RED'
+  items[i].innerHTML =
+    'list item <a href="#" class="delete-item secondary-content"><i class="fa fa-remove"></i></a>'
+}
 
-anElement = document.querySelector('a')
+console.log(items)
 
-anElement.style.color = 'GREEN'
+//get elements by querySelectorAll return AN Array
 
-anElement = document.querySelector('a')
+items = document.querySelectorAll('li:nth-child(odd)')
 
-anElement.style.color = 'GREEN'
-anElement = document.querySelector('li')
+items.forEach(function (li) {
+  li.textContent = 'Hello World'
+  li.style.background = 'ORANGE'
+})
 
-anElement.style.color = 'RED'
+console.log(items)
 
-anElement = document.querySelector('ul li')
-anElement.style.color = 'brown'
 
-anElement = document.querySelector('li:last-child')
-anElement.style.color = 'brown'
-
-anElement = document.querySelector('li:nth-child(3)')
-anElement.style.color = 'BLUE'
-
-anElement = document.querySelector('li:nth-child(4)')
-anElement.textContent = 'Anothert '
-
-anElement = document.querySelector('li:nth-child(odd)')
-anElement.style.background = 'Orange'
-
-anElement = document.querySelector('li:nth-child(even)')
-anElement.style.background = '#ccc'
