@@ -1,51 +1,41 @@
-//Get Collection by Classname
-let items = document.getElementsByClassName('collection-item')
+let val
 
-items = Array.from(items)
+const list = document.querySelector('ul.collection')
+const listitem = document.querySelector('li.collection-item:first-child')
+
+val = listitem
+val = list
+
+val = list.childNodes
+// val = list.childNodes[0]
+// val = list.childNodes[1]
+
+// items = Array.from(list.childNodes)
+// items.forEach(function (item) {
+//   console.log(item.nodeName)
+//   console.log(item.nodeType)
+// })
+
+items = Array.from(list.children)
 items.forEach(function (item) {
-  item.style.background = '#AAA'
-})
-console.log(items)
-
-//get collection by Tag name
-
-items = document.getElementsByTagName('li')
-
-items = Array.from(items)
-
-items.forEach(function (li, index) {
-  if (index % 2 == 0) {
-    li.style.background = '#ccc'
-  } else {
-    li.style.background = '#999'
-  }
-  li.textContent = `${index} New Text`
-})
-console.log(items)
-
-//get collection by queryselector
-
-items = document.querySelector('ul').getElementsByClassName('collection-item')
-
-items = Array.from(items)
-
-for (let i = 0; i < items.length; i++) {
-  items[i].style.color = 'RED'
-  items[i].innerHTML =
-    'list item <a href="#" class="delete-item secondary-content"><i class="fa fa-remove"></i></a>'
-}
-
-console.log(items)
-
-//get elements by querySelectorAll return AN Array
-
-items = document.querySelectorAll('li:nth-child(odd)')
-
-items.forEach(function (li) {
-  li.textContent = 'Hello World'
-  li.style.background = 'ORANGE'
+  console.log(item.nodeName)
+  console.log(item.nodeType)
+  item.textContent = 'Hello World '
+  item.style.color = 'RED'
 })
 
-console.log(items)
+val = list.firstChild
+val = list.firstElementChild
+val = list.lastElementChild
 
+val = list.childElementCount
+val = listitem.parentNode.parentNode
+val = listitem.parentElement.parentElement
 
+val = listitem.nextElementSibling
+val = val.nextElementSibling
+
+val = listitem.previousElementSibling
+val = listitem.previousSibling
+
+console.log(val)
