@@ -1,41 +1,24 @@
-let val
+//create element
 
-const list = document.querySelector('ul.collection')
-const listitem = document.querySelector('li.collection-item:first-child')
+const li = document.createElement('li')
 
-val = listitem
-val = list
+li.className = 'collection-item'
 
-val = list.childNodes
-// val = list.childNodes[0]
-// val = list.childNodes[1]
+li.id = 'new-item'
 
-// items = Array.from(list.childNodes)
-// items.forEach(function (item) {
-//   console.log(item.nodeName)
-//   console.log(item.nodeType)
-// })
+li.setAttribute('title', 'Delete Item')
 
-items = Array.from(list.children)
-items.forEach(function (item) {
-  console.log(item.nodeName)
-  console.log(item.nodeType)
-  item.textContent = 'Hello World '
-  item.style.color = 'RED'
-})
+li.appendChild(document.createTextNode('Hello World'))
 
-val = list.firstChild
-val = list.firstElementChild
-val = list.lastElementChild
+// li.innerHTML =
+//   li.innerHTML +
+//   '<a href="#" class="delete-item secondary-content" ><i class="fa fa-remove"></i></a>'
 
-val = list.childElementCount
-val = listitem.parentNode.parentNode
-val = listitem.parentElement.parentElement
+let link = document.createElement('a')
 
-val = listitem.nextElementSibling
-val = val.nextElementSibling
+link.className = 'delete-item secondary-content'
+link.innerHTML = "<i class='fa fa-remove'></i>"
 
-val = listitem.previousElementSibling
-val = listitem.previousSibling
+li.appendChild(link)
 
-console.log(val)
+document.querySelector('ul.collection').append(li)
