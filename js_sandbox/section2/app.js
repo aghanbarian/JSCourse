@@ -1,38 +1,30 @@
-// replace element
+// document.querySelector('.clear-tasks').addEventListener('click', function (e) {
+//   console.log('hello world')
+//   e.preventDefault()
+// })
 
-const newHeading = document.createElement('h2')
-newHeading.id = 'task-title'
-newHeading.appendChild(document.createTextNode('Task List'))
+document.querySelector('.clear-tasks').addEventListener('mouseover', onClick)
 
-const oldHeading = document.getElementById('task-title')
+function onClick(e) {
+  // console.log('Clicked')
 
-const elementParent = oldHeading.parentNode
+  let val
 
-elementParent.replaceChild(newHeading, oldHeading)
+  val = e
+  val = e.target
+  val = e.target.className
+  val = e.target.classList
 
-//remove element
+  e.target.innerText = 'Hello World'
 
-let val
+  val = e.type
+  val = e.timeStamp
 
-liList = document.querySelectorAll('li')
-liParent = document.querySelector('ul')
+  val = e.clientX
+  val = e.clientY
 
-liList[0].remove()
-liParent.removeChild(liList[2])
+  val = e.offsetX
+  val = e.offsetY
 
-const firstLi = document.querySelector('li:first-child')
-const link = firstLi.children[0]
-
-val = link.classList
-val = link.classList[0]
-link.classList.add('test')
-val = link
-
-val = link.getAttribute('href')
-link.setAttribute('href', 'http://google.com')
-val = link.getAttribute('href')
-link.setAttribute('title', 'google')
-link.removeAttribute('title', 'google')
-
-val = link
-console.log(val)
+  console.log(val)
+}
