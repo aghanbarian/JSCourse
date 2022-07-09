@@ -1,30 +1,21 @@
-// document.querySelector('.clear-tasks').addEventListener('click', function (e) {
-//   console.log('hello world')
-//   e.preventDefault()
-// })
+const card = document.querySelector('.card')
+const heading = document.querySelector('h5')
+const clearTask = document.querySelector('.clear-tasks')
 
-document.querySelector('.clear-tasks').addEventListener('mouseover', onClick)
+// clearTask.addEventListener('click', runEvent)
+clearTask.addEventListener('dblclick', runEvent)
+clearTask.addEventListener('mousedown', runEvent)
+clearTask.addEventListener('mouseup', runEvent)
+clearTask.addEventListener('mousemove', runEvent)
 
-function onClick(e) {
-  // console.log('Clicked')
+card.addEventListener('mousemove', runEvent)
 
-  let val
+function runEvent(e) {
+  console.log(`Event Typed : ${e.type}`)
 
-  val = e
-  val = e.target
-  val = e.target.className
-  val = e.target.classList
+  heading.innerHTML = `X :  ${e.offsetX} Y: ${e.offsetY}`
 
-  e.target.innerText = 'Hello World'
-
-  val = e.type
-  val = e.timeStamp
-
-  val = e.clientX
-  val = e.clientY
-
-  val = e.offsetX
-  val = e.offsetY
-
-  console.log(val)
+  document.body.style.backgroundColor = `rgb(${e.offsetX}, ${e.offsetY}, 30)`
 }
+
+console.log(card, heading, clearTask)
