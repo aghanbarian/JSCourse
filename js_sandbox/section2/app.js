@@ -1,18 +1,33 @@
-const from = document.querySelector('form')
-const heading = document.querySelector('h5')
-const input = document.querySelector('input')
+//event bubbling
 
-input.addEventListener('keydown', runEvent)
-input.addEventListener('keyup', runEvent)
-input.addEventListener('keypress', runEvent)
-input.addEventListener('focus', runEvent)
-input.addEventListener('blur', runEvent)
-input.addEventListener('cut', runEvent)
-input.addEventListener('paste', runEvent)
-input.addEventListener('input', runEvent)
-input.addEventListener('change', runEvent)
+// document.querySelector('.card-title').addEventListener('click', function (e) {
+//   console.log('card-title')
+// })
 
-function runEvent(e) {
-  heading.innerText = input.value
-  console.log(`EVENT TYPE : ${e.type}`)
+// document.querySelector('.card-content').addEventListener('click', function (e) {
+//   console.log('card-content')
+// })
+
+// document.querySelector('.card').addEventListener('click', function (e) {
+//   console.log('card')
+// })
+
+// document.querySelector('.col').addEventListener('click', function (e) {
+//   console.log('col')
+// })
+
+//event delegation
+
+// const delItem = document.querySelector('.delete-item')
+
+// delItem.addEventListener('click', deleteItem)
+
+document.body.addEventListener('click', deleteItem)
+
+function deleteItem(e) {
+  if (e.target.parentElement.classList.contains('delete-item')) {
+    console.log('Delete Item')
+
+    e.target.parentElement.parentElement.remove()
+  }
 }
