@@ -1,21 +1,18 @@
-const card = document.querySelector('.card')
+const from = document.querySelector('form')
 const heading = document.querySelector('h5')
-const clearTask = document.querySelector('.clear-tasks')
+const input = document.querySelector('input')
 
-// clearTask.addEventListener('click', runEvent)
-clearTask.addEventListener('dblclick', runEvent)
-clearTask.addEventListener('mousedown', runEvent)
-clearTask.addEventListener('mouseup', runEvent)
-clearTask.addEventListener('mousemove', runEvent)
-
-card.addEventListener('mousemove', runEvent)
+input.addEventListener('keydown', runEvent)
+input.addEventListener('keyup', runEvent)
+input.addEventListener('keypress', runEvent)
+input.addEventListener('focus', runEvent)
+input.addEventListener('blur', runEvent)
+input.addEventListener('cut', runEvent)
+input.addEventListener('paste', runEvent)
+input.addEventListener('input', runEvent)
+input.addEventListener('change', runEvent)
 
 function runEvent(e) {
-  console.log(`Event Typed : ${e.type}`)
-
-  heading.innerHTML = `X :  ${e.offsetX} Y: ${e.offsetY}`
-
-  document.body.style.backgroundColor = `rgb(${e.offsetX}, ${e.offsetY}, 30)`
+  heading.innerText = input.value
+  console.log(`EVENT TYPE : ${e.type}`)
 }
-
-console.log(card, heading, clearTask)
