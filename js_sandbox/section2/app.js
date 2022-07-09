@@ -1,24 +1,38 @@
-//create element
+// replace element
 
-const li = document.createElement('li')
+const newHeading = document.createElement('h2')
+newHeading.id = 'task-title'
+newHeading.appendChild(document.createTextNode('Task List'))
 
-li.className = 'collection-item'
+const oldHeading = document.getElementById('task-title')
 
-li.id = 'new-item'
+const elementParent = oldHeading.parentNode
 
-li.setAttribute('title', 'Delete Item')
+elementParent.replaceChild(newHeading, oldHeading)
 
-li.appendChild(document.createTextNode('Hello World'))
+//remove element
 
-// li.innerHTML =
-//   li.innerHTML +
-//   '<a href="#" class="delete-item secondary-content" ><i class="fa fa-remove"></i></a>'
+let val
 
-let link = document.createElement('a')
+liList = document.querySelectorAll('li')
+liParent = document.querySelector('ul')
 
-link.className = 'delete-item secondary-content'
-link.innerHTML = "<i class='fa fa-remove'></i>"
+liList[0].remove()
+liParent.removeChild(liList[2])
 
-li.appendChild(link)
+const firstLi = document.querySelector('li:first-child')
+const link = firstLi.children[0]
 
-document.querySelector('ul.collection').append(li)
+val = link.classList
+val = link.classList[0]
+link.classList.add('test')
+val = link
+
+val = link.getAttribute('href')
+link.setAttribute('href', 'http://google.com')
+val = link.getAttribute('href')
+link.setAttribute('title', 'google')
+link.removeAttribute('title', 'google')
+
+val = link
+console.log(val)
