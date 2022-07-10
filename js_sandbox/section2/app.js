@@ -1,33 +1,33 @@
-//event bubbling
+// localStorage.setItem('name', 'John')
 
-// document.querySelector('.card-title').addEventListener('click', function (e) {
-//   console.log('card-title')
-// })
+// // sessionStorage.setItem('name', 'ahmad')
 
-// document.querySelector('.card-content').addEventListener('click', function (e) {
-//   console.log('card-content')
-// })
+// console.log(localStorage.getItem('name'))
 
-// document.querySelector('.card').addEventListener('click', function (e) {
-//   console.log('card')
-// })
+// console.log(sessionStorage.getItem('name'))
+// localStorage.clear()
+let element = document.querySelector('form')
+console.log(element)
 
-// document.querySelector('.col').addEventListener('click', function (e) {
-//   console.log('col')
-// })
+document.querySelector('form').addEventListener('submit', function (e) {
+  const task = document.getElementById('task').value
+  let tasks
 
-//event delegation
-
-// const delItem = document.querySelector('.delete-item')
-
-// delItem.addEventListener('click', deleteItem)
-
-document.body.addEventListener('click', deleteItem)
-
-function deleteItem(e) {
-  if (e.target.parentElement.classList.contains('delete-item')) {
-    console.log('Delete Item')
-
-    e.target.parentElement.parentElement.remove()
+  if (localStorage.getItem('tasks') === null) {
+    tasks = []
+  } else {
+    tasks = JSON.parse(localStorage.getItem('tasks'))
   }
-}
+
+  console.log(task)
+
+  tasks.push(task)
+
+  console.log(tasks);
+
+  localStorage.setItem('tasks', JSON.stringify(tasks))
+
+  alert('task saved')
+
+  e.preventDefault
+})
