@@ -1,12 +1,13 @@
-document
-  .getElementById('loan-form')
-  .addEventListener('submit', calculateLoanDetail)
+document.getElementById('loan-form').addEventListener('submit', function (e) {
+  document.getElementById('results').style.display = 'none'
+  document.getElementById('loading').style.display = 'block'
+
+  setTimeout(calculateLoanDetail, 2000)
+
+  e.preventDefault()
+})
 
 function calculateLoanDetail(e) {
-  console.log('====================================')
-  console.log('Calculating...')
-  console.log('====================================')
-
   const amount = document.getElementById('amount')
   const interest = document.getElementById('interest')
   const years = document.getElementById('years')
@@ -27,6 +28,9 @@ function calculateLoanDetail(e) {
     monthlyPayment.value = monthly.toFixed(2)
     totalPayment.value = (monthly * calculatedPayments).toFixed(2)
     totalInterest.value = (monthly * calculatedPayments - principal).toFixed(2)
+    //show result
+    document.getElementById('results').style.display = 'block'
+    document.getElementById('loading').style.display = 'none'
   } else {
     console.log('please check your numbers')
     showError('Please Check Your Parameters')
@@ -34,6 +38,8 @@ function calculateLoanDetail(e) {
 
   //show error
   function showError(err) {
+    document.getElementById('results').style.display = 'none'
+    document.getElementById('loading').style.display = 'none'
     //create div
     const errorDiv = document.createElement('div')
 
