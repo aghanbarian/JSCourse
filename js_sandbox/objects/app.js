@@ -1,63 +1,36 @@
-let name1 = 'jeff'
-let name2 = new String('jeff')
-
-console.log(name1)
-console.log(name2)
-
-console.log(typeof name1)
-console.log(typeof name2)
-
-if (name1 === 'jeff') {
-  console.log('YES')
-} else {
-  console.log('NO')
+function Person(firstname, lastname, bod) {
+  this.firstName = firstname
+  this.lastName = lastname
+  this.birthDay = new Date(bod)
+  // this.calculateAge = function () {
+  //   const diff = Date.now() - this.birthDay.getTime()
+  //   const ageDate = new Date(diff)
+  //   return Math.abs(ageDate.getUTCFullYear() - 1970)
+  // }
 }
 
-if (name2 === 'jeff') {
-  console.log('YES')
-} else {
-  console.log('NO')
+Person.prototype.calculateAge = function () {
+  const diff = Date.now() - this.birthDay.getTime()
+  const ageDate = new Date(diff)
+  return Math.abs(ageDate.getUTCFullYear() - 1970)
+}
+Person.prototype.getBirthDate = function () {
+  return `${this.firstName} borned in ${this.birthDay}`
 }
 
-if (name2 == 'jeff') {
-  console.log('YES')
-} else {
-  console.log('NO')
+Person.prototype.getFullName = function () {
+  return `${this.firstName} ${this.lastName}`
 }
 
-//Numbers
-
-let num1 = 10
-let num2 = new Number(5)
-
-console.log(num1)
-console.log(num2)
-
-console.log(typeof num1)
-console.log(typeof num2)
-
-//function
-
-const getsum1 = function (x, y) {
-  return x + y
-}
-
-const getsum2 = new Function('x', 'y', 'return x+y')
-
-console.log(getsum1(10, 20))
-console.log(getsum2(2, 7))
-
-//objects
-const john = { name: 'john' }
+john = new Person('john', 'lizard', '2-11-1968')
+mary = new Person('mary', 'johnson', '10 sep  1978')
 
 console.log(john)
+console.log(mary)
+console.log(mary.calculateAge())
+console.log(mary.getFullName())
+console.log(mary.getBirthDate())
 
-const john2 = new Object({ name: 'john' })
-
-console.log(john2)
-
-const arr1 = [1, 2, 3, 4]
-const arr2 = new Array([1, 2, 3, 4])
-
-console.log(typeof arr1)
-console.log(typeof arr2)
+console.log(mary.hasOwnProperty('lastName'))
+console.log(mary.hasOwnProperty('getFullName'))
+console.log(mary.hasOwnProperty('calculateAge'))
