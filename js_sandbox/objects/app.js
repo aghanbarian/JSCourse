@@ -1,54 +1,31 @@
-function Person(firstname, lastname, bod) {
-  this.firstName = firstname
-  this.lastName = lastname
-  this.birthDay = new Date(bod)
+const personPrototype = {
+  greeting: function () {
+    return `Hello there ${this.firstName} ${this.lastName}`
+  },
+
+  getsMarried: function (newLastName) {
+    this.lastName = newLastName
+  },
 }
 
-Person.prototype.calculateAge = function () {
-  const diff = Date.now() - this.birthDay.getTime()
-  const ageDate = new Date(diff)
-  return Math.abs(ageDate.getUTCFullYear() - 1970)
-}
-Person.prototype.getBirthDate = function () {
-  return `${this.firstName} borned in ${this.birthDay}`
-}
+const mary = Object.create(personPrototype)
+mary.firstName = 'mary'
+mary.lastName = 'johnson'
+mary.age = 30
 
-Person.prototype.getFullName = function () {
-  return `${this.firstName} ${this.lastName}`
-}
-
-john = new Person('john', 'lizard', '2-11-1968')
-mary = new Person('mary', 'johnson', '10 sep  1978')
-
-console.log(john)
+console.log('====================================')
 console.log(mary)
-console.log(mary.calculateAge())
-console.log(mary.getFullName())
-console.log(mary.getBirthDate())
+console.log(mary.greeting())
+mary.getsMarried('Davidson')
+console.log(mary.greeting())
 
-console.log(mary.hasOwnProperty('lastName'))
-console.log(mary.hasOwnProperty('getFullName'))
-console.log(mary.hasOwnProperty('calculateAge'))
+console.log('====================================')
 
-function Customer(firstname, lastname, bod, phone, membership) {
-  Person.call(this, firstname, lastname, bod)
+const brad = Object.create(personPrototype, {
+  firstName: { value: 'Brad' },
+  lastName: { value: 'traversy' },
+  age: { value: 40 },
+})
 
-  this.phone = phone
-  this.membership = membership
-}
-
-Customer.prototype = Object.create(Person.prototype)
-
-const customer1 = new Customer(
-  'ali',
-  'ghanbarian',
-  '2-10-1981',
-  '+989123055980',
-  'standard'
-)
-
-Customer.prototype.getFullName = function () {
-  return `${this.firstName} ${this.lastName} welcome to our company`
-}
-console.log(customer1)
-console.log(customer1.getFullName())
+console.log(brad)
+console.log(brad.greeting())
