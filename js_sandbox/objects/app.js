@@ -1,31 +1,37 @@
-const personPrototype = {
-  greeting: function () {
-    return `Hello there ${this.firstName} ${this.lastName}`
-  },
+class Person {
+  constructor(firstName, LastName, bod) {
+    this.firstName = firstName
+    this.LastName = LastName
+    this.birthDay = new Date(bod)
+  }
 
-  getsMarried: function (newLastName) {
-    this.lastName = newLastName
-  },
+  greeting() {
+    return `Hello There ${this.firstName} ${this.LastName}`
+  }
+
+  getsMarried(newLastname) {
+    this.LastName = newLastname
+  }
+
+  calculateAge() {
+    const diff = Date.now() - this.birthDay.getTime()
+    const ageDate = new Date(diff)
+    return Math.abs(ageDate.getUTCFullYear() - 1970)
+  }
+
+  static addNumbers(a, b) {
+    return a + b
+  }
 }
 
-const mary = Object.create(personPrototype)
-mary.firstName = 'mary'
-mary.lastName = 'johnson'
-mary.age = 30
+mary = new Person('mary', 'johnson', '10-2-1983')
 
 console.log('====================================')
 console.log(mary)
 console.log(mary.greeting())
-mary.getsMarried('Davidson')
+mary.getsMarried('Tompson')
 console.log(mary.greeting())
-
+console.log(mary.calculateAge())
 console.log('====================================')
 
-const brad = Object.create(personPrototype, {
-  firstName: { value: 'Brad' },
-  lastName: { value: 'traversy' },
-  age: { value: 40 },
-})
-
-console.log(brad)
-console.log(brad.greeting())
+console.log(Person.addNumbers(1, 2))
