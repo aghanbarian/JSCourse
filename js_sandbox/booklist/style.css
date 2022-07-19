@@ -1,3 +1,4 @@
+
 .success, .error {
   color : white;
   padding : 5px;
@@ -12,3 +13,12 @@
 .error {
   background: red;
 }
+/* 
+thead, h2, h3, #btnSave {
+  background: #c5f6f7;
+}
+
+th {
+  text-align: center;
+}
+ */
