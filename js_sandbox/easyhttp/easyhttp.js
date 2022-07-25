@@ -19,3 +19,42 @@ easyHTTP.prototype.get = function (url, callback) {
 }
 
 //make a hhtp post request
+easyHTTP.prototype.post = function (url, data, callback) {
+  this.http.open('POST', url, true)
+  this.http.setRequestHeader('Content-type', 'application/json')
+
+  let self = this
+  this.http.onload = function () {
+    callback(null, self.http.responseText)
+  }
+
+  this.http.send(JSON.stringify(data))
+}
+
+//make a http put request
+easyHTTP.prototype.put = function (url, data, callback) {
+  this.http.open('PUT', url, true)
+  this.http.setRequestHeader('Content-type', 'application/json')
+
+  let self = this
+  this.http.onload = function () {
+    callback(null, self.http.responseText)
+  }
+
+  this.http.send(JSON.stringify(data))
+}
+
+//make a hhtp delte request
+easyHTTP.prototype.delete = function (url, callback) {
+  this.http.open('DELETE', url, true)
+  let self = this
+  this.http.onload = function () {
+    if (self.http.status === 200) {
+      callback(null, 'Post Deleted')
+    } else {
+      callback('Error : ' + self.http.status)
+    }
+  }
+
+  this.http.send()
+}
