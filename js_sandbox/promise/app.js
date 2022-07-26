@@ -47,6 +47,7 @@ function addPost(post) {
     let error = false
     setTimeout(function () {
       posts.push(post)
+      error = true
       if (!error) {
         resolve()
       } else {
