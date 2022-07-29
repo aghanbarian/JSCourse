@@ -4,25 +4,17 @@ document.getElementById('button3').addEventListener('click', getExternal)
 
 function getText() {
   fetch('test.txt')
-    .then(function (result) {
-      return result.text()
-      document.getElementById('output').innerHTML = result.text()
-    })
-    .then(function (data) {
+    .then((result) => result.text())
+    .then((data) => {
       console.log(data)
       document.getElementById('output').innerHTML = data
     })
-    .catch(function (error) {
-      console.log(error)
-    })
+    .catch((error) => console.log(error))
 }
 
 function getJson() {
   fetch('posts.json')
-    .then(function (result) {
-      return result.text()
-      document.getElementById('output').innerHTML = result.text()
-    })
+    .then((result) => result.text())
     .then(function (data) {
       console.log(data)
       output = '<ul>'
@@ -33,18 +25,13 @@ function getJson() {
       output += '</ul>'
       document.getElementById('output').innerHTML = output
     })
-    .catch(function (error) {
-      console.log(error)
-    })
+    .catch((error) => console.log(error))
 }
 
 function getExternal() {
   fetch('https://api.github.com/users')
-    .then(function (result) {
-      return result.text()
-      document.getElementById('output').innerHTML = result.text()
-    })
-    .then(function (data) {
+    .then((result) => result.text())
+    .then((data) => {
       console.log(data)
       output = '<ul>'
       posts = JSON.parse(data)
@@ -54,7 +41,5 @@ function getExternal() {
       output += '</ul>'
       document.getElementById('output').innerHTML = output
     })
-    .catch(function (error) {
-      console.log(error)
-    })
+    .catch((error) => console.log(error))
 }
