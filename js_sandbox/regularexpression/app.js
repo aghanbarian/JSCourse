@@ -47,3 +47,37 @@ console.log(result) // 6
 str = 'ahmad Hello There'
 result = str.replace(re, 'hi')
 console.log(result) // ahmad hi there
+
+// Section 2 regular expression
+
+re = /hello/
+str = 'hello there' //matches
+
+re = /hello/i
+str = 'Hello there world' //matches
+
+re = /^h/i
+re = / world$/i
+re = /^hello$/i
+re = /h.llo/i
+str = 'Hoeeellllo there world' //matches
+re = /h*llo/i
+
+str = 'gry?'
+re = /gre?a?y/i
+re = /gre?a?y\?/i
+
+//log result
+
+result = re.exec(str)
+console.log(result)
+
+function reTest(re, str) {
+  if (re.test(str)) {
+    console.log(`${str} matches ${re.source}`)
+  } else {
+    console.log(`${str} does NOT matche ${re.source}`)
+  }
+}
+
+reTest(re, str)
