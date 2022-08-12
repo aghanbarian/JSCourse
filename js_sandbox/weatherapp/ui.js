@@ -7,19 +7,18 @@ class UI {
     this.icon = document.getElementById('w-icon')
     this.humidity = document.getElementById('w-humidity')
     this.feelslike = document.getElementById('w-feels-like')
-    this.wind = document.getElementById('w-winds')
-    this.dewpint = document.getElementById('w-dewpoint')
+    this.wind = document.getElementById('w-wind')
+    this.dewpoint = document.getElementById('w-dewpoint')
   }
 
   paint(weather) {
-    console.log(weather.current)
-    console.log(weather.current.humidity)
-    console.log(weather.current.condition.icon)
-    this.location.textContent = weather.location.name
+    this.location.textContent =
+      weather.location.country + '-' + weather.location.name
     this.desc.textContent = weather.current.condition.text
+    this.dewpoint.textContent = `Visibility (Km) : ${weather.current.vis_km}`
     this.wind.textContent = `Wind Speed  : ${weather.current.wind_kph} /kph`
     this.icon.setAttribute('src', weather.current.condition.icon)
-    //this.humidity.textContent = `Relative Humidity : ${weather.current.humidity}`
+    this.humidity.textContent = `Relative Humidity : ${weather.current.humidity}`
     this.feelslike.textContent = `Feels Like : ${weather.current.feelslike_c}`
   }
 }

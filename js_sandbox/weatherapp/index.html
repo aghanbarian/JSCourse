@@ -2,8 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="./bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://bootswatch.com/4/cerulean/bootstrap.min.css"
+    />
+
     <title>Weather App</title>
   </head>
   <body>
@@ -12,14 +17,15 @@
         <div class="col-md-6 mx-auto text-center bg-primary mt-5 p-5 rounded">
           <h1 id="w-location"></h1>
           <h3 class="text-dark" id="w-desc"></h3>
-          <h3 class="w-string"></h3>
-          <img src="./img/weather/64x64/day/143.png" alt="" id="w-icon" />
-          <ul class="list-group mt-3" id="w-details">
-            <li calss="list-group-item" id="w-humidity"></li>
-            <li calss="list-group-item" id="w-dewpoint"></li>
-            <li calss="list-group-item" id="w-winds"></li>
-            <li calss="list-group-item" id="w-feels-like"></li>
+          <h3 id="w-string"></h3>
+          <img id="w-icon" />
+          <ul id="w-details" class="list-group mt-3">
+            <li class="list-group-item" id="w-humidity"></li>
+            <li class="list-group-item" id="w-dewpoint"></li>
+            <li class="list-group-item" id="w-feels-like"></li>
+            <li class="list-group-item" id="w-wind"></li>
           </ul>
+          <hr />
           <button
             type="button"
             class="btn btn-primary"
@@ -62,7 +68,7 @@
               </div>
               <div class="form-group">
                 <label for="state">State</label>
-                <input type="text" id="state " class="form-control" />
+                <input type="text" id="state" class="form-control" />
               </div>
             </form>
           </div>
