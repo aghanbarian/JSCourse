@@ -42,10 +42,17 @@ const ItemCtrl = (function () {
 
       return newItem
     },
+    removeItem: function (id) {
+      data.items.forEach(function (item, index) {
+        if (item.id === id) {
+          data.items.splice(index, 1)
+        }
+      })
+    },
     getTotalCalories: function () {
       let total = 0
       data.items.forEach(function (item) {
-        total += item.calories
+        total += parseInt(item.calories)
       })
 
       data.totalCalories = total
@@ -62,11 +69,19 @@ const ItemCtrl = (function () {
       })
       return found
     },
+    updateItem: function (name, calories) {
+      data.currentItem.name = name
+      data.currentItem.calories = calories
+      return data.currentItem
+    },
     setCurrentItem: function (item) {
       data.currentItem = item
     },
     getCurrentItem: function () {
       return data.currentItem
+    },
+    clearAllItem: function () {
+      data.items = []
     },
     logdata: function () {
       return data
@@ -78,10 +93,12 @@ const ItemCtrl = (function () {
 const UICtrl = (function () {
   const UISelectors = {
     itemList: '#item-list',
+    listItems: '#item-list li',
     addBtn: '.add-btn',
     updateBtn: '.update-btn',
     deleteBtn: '.delete-btn',
     backBtn: '.back-btn',
+    clearAllBtn: '.clear-btn',
     itemNameInput: '#item-name',
     itemCaloriesInput: '#item-calories',
     totalCaloriesItem: '.total-calories',
@@ -124,6 +141,47 @@ const UICtrl = (function () {
       let totalCalories = ItemCtrl.getTotalCalories()
       UICtrl.showTotalCalories(totalCalories)
     },
+
+    updateListItem: function () {
+      const items = document.querySelectorAll(UISelectors.listItems)
+
+      items.forEach(function (item) {
+        const itemToUpdate = ItemCtrl.getCurrentItem()
+        if (item.id === 'item-' + itemToUpdate.id) {
+          console.log('Equity')
+          item.innerHTML = `
+          <strong>${itemToUpdate.name} : </strong><em>${itemToUpdate.calories} calories</em>
+          <a href="#" class="secondary-content"><i class="edit-item fa fa-pencil"></i></a>
+          `
+        }
+      })
+
+      let totalCalories = ItemCtrl.getTotalCalories()
+      UICtrl.showTotalCalories(totalCalories)
+    },
+
+    removeListItem: function (id) {
+      const items = document.querySelectorAll(UISelectors.listItems)
+      items.forEach(function (item) {
+        if (item.id === 'item-' + id) {
+          item.remove()
+        }
+      })
+      let totalCalories = ItemCtrl.getTotalCalories()
+      UICtrl.showTotalCalories(totalCalories)
+    },
+
+    removeAllListItem: function () {
+      const items = document.querySelectorAll(UISelectors.listItems)
+      if (items !== null && items.length > 0) {
+        items.forEach(function (item) {
+          item.remove()
+        })
+      }
+      let totalCalories = ItemCtrl.getTotalCalories()
+      UICtrl.showTotalCalories(totalCalories)
+    },
+
     getSelectors: function () {
       return UISelectors
     },
@@ -172,7 +230,43 @@ const App = (function (ItemCtrl, UICtrl) {
       .addEventListener('click', itemAddSubmit)
     document
       .querySelector(selectors.itemList)
+      .addEventListener('click', itemEditSubmit)
+    document
+      .querySelector(selectors.updateBtn)
       .addEventListener('click', itemUpdateSubmit)
+    document
+      .querySelector(selectors.deleteBtn)
+      .addEventListener('click', itemDeleteSubmit)
+    document
+      .querySelector(selectors.clearAllBtn)
+      .addEventListener('click', clearAllItemsClick)
+  }
+
+  function itemUpdateSubmit(e) {
+    const input = UICtrl.getInputItems()
+
+    if (input.name !== '' && input.calories !== '') {
+      const updatedItem = ItemCtrl.updateItem(input.name, input.calories)
+      UICtrl.updateListItem(updatedItem)
+      UICtrl.clearEditState()
+    }
+    e.preventDefault()
+  }
+
+  const itemDeleteSubmit = function (e) {
+    ItemCtrl.removeItem(ItemCtrl.getCurrentItem().id)
+    UICtrl.removeListItem(ItemCtrl.getCurrentItem().id)
+    UICtrl.clearEditState()
+  }
+
+  const clearAllItemsClick = function (e) {
+    console.log('step 1')
+    ItemCtrl.clearAllItem()
+    console.log('step 2')
+    UICtrl.removeAllListItem()
+    console.log('step 3')
+    UICtrl.clearEditState()
+    console.log('step end')
   }
 
   function itemAddSubmit(e) {
@@ -186,7 +280,7 @@ const App = (function (ItemCtrl, UICtrl) {
     e.preventDefault()
   }
 
-  function itemUpdateSubmit(e) {
+  function itemEditSubmit(e) {
     if (e.target.classList.contains('edit-item')) {
       //get list item id
       const listId = e.target.parentNode.parentNode.id
