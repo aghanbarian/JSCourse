@@ -4,7 +4,8 @@ import { ui } from './ui'
 // Get posts on DOM load
 document.addEventListener('DOMContentLoaded', getPosts)
 document.querySelector('.post-submit').addEventListener('click', submitPost)
-// document.querySelector('.delete').addEventListener('click', deletePost)
+//document.querySelector('#posts').addEventListener('click', deletePost)
+document.querySelector('#posts').addEventListener('click', enableEdit)
 
 function getPosts() {
   http
@@ -29,20 +30,29 @@ function submitPost(e) {
       .post('http://localhost:3000/posts', data)
       .then((data) => {
         ui.showAlert('Post Added', 'alert alert-success')
-        //ui.clearFields()
+        ui.clearFields()
         getPosts()
       })
       .catch((err) => console.log(err))
-
-    ui.showAlert('Post Added', 'alert')
-    ui.clearFields()
   }
 
   e.preventDefault()
 }
 
-// function deletePost(e) {
-//   console.log('delete post')
-//   s = e.target.classList.include('data-id').value
-//   console.log(s)
-// }
+function enableEdit(e) {
+  if (e.target.parentElement.classList.contains('edit')) {
+    const id = e.target.parentElement.dataset.id
+    const title =
+      e.target.parentElement.previousElementSibling.previousElementSibling
+        .textContent
+    const body = e.target.parentElement.previousElementSibling.textContent
+
+    const data = {
+      id,
+      title,
+      body,
+    }
+
+    ui.fillForm(data)
+  }
+}

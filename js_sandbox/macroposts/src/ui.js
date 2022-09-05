@@ -49,7 +49,13 @@ class UI {
 
     setTimeout(() => {
       this.clearAlert()
-    }, 60000)
+    }, 3000)
+  }
+
+  fillForm(data) {
+    this.titleInput.value = data.title
+    this.bodyInput.value = data.body
+    this.idInput = data.id
   }
 
   clearAlert() {
