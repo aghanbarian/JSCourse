@@ -55,40 +55,7 @@ class UI {
   fillForm(data) {
     this.titleInput.value = data.title
     this.bodyInput.value = data.body
-    this.idInput.value = data.id
-    console.log('====================================')
-    console.log(this.idInput.value)
-    console.log('====================================')
-    this.changeState('edit')
-  }
-
-  clearIdInput() {
-    this.idInput.value = ''
-  }
-
-  changeState(type) {
-    if (type === 'edit') {
-      this.postSubmit.textContent = 'Update Post'
-      this.postSubmit.className = 'post-submit btn btn-warning btn-block'
-      //create cancel button
-
-      const button = document.createElement('button')
-      button.className = 'cancel-btn btn btn-light btn-block'
-      button.appendChild(document.createTextNode('Cancel '))
-
-      const cardForm = document.querySelector('.card-form')
-      const formend = document.querySelector('.form-end')
-      cardForm.insertBefore(button, formend)
-    } else {
-      this.postSubmit.textContent = 'Post It'
-      this.postSubmit.className = 'post-submit btn btn-primary btn-block'
-      const cancelButton = document.querySelector('.cancel-btn')
-      if (cancelButton !== null) {
-        cancelButton.remove()
-      }
-      this.clearIdInput()
-      this.clearFields()
-    }
+    this.idInput = data.id
   }
 
   clearAlert() {
@@ -99,7 +66,6 @@ class UI {
   }
 
   clearFields() {
-    console.log('here is clearing')
     this.titleInput.value = ''
     this.bodyInput.value = ''
   }
